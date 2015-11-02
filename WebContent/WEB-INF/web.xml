@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<welcome-file-list>
+		<welcome-file>/index.html</welcome-file>
+	</welcome-file-list>
+	<context-param>
+		<param-name>dbConnection</param-name>
+		<param-value>com.jdbc.mysql.Driver</param-value>
+	</context-param>
+	<listener>
+		<listener-class>com.learnservlet.intro.MyServletContextListener
+		</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>HelloJSP2</servlet-name>
+		<servlet-class>com.learnservlet.jsp.Intro</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HelloJSP2</servlet-name>
+		<url-pattern>/jsp</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Hello</servlet-name>
+		<servlet-class>com.learnservlet.intro.Hello</servlet-class>
+		<init-param>
+			<param-name>from_email</param-name>
+			<param-value>pkuppanan@infofaces.com</param-value>
+		</init-param>
+		<init-param>
+			<param-name>to_email</param-name>
+			<param-value>admin@infofaces.com</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Hello</servlet-name>
+		<url-pattern>/intro</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>HelloJsp</servlet-name>
+		<servlet-class>com.learnservlet.intro.HelloJSP</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HelloJsp</servlet-name>
+		<url-pattern>/intro/hellojsp</url-pattern>
+	</servlet-mapping>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error.html</location>
+	</error-page>
+</web-app>
